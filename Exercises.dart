@@ -12,7 +12,7 @@ void main() {
     print("3. Calcular puntos de un equipo");
     print("4. Calcular planilla de empleado");
     print("5. Calcular hipotenusa de un triángulo");
-    print("6. Convertir 70°C a °F");
+    print("6. Convertir °C a °F");
     print("7. Salir");
     print("---");
     String? input = stdin.readLineSync();
@@ -25,7 +25,7 @@ void main() {
         print("Digite el tiempo: ");
         double? time = double.tryParse(stdin.readLineSync() ?? '0');
         double distanceResult = distance(velocidad, time);
-        print("La distancia recorrida es: $distanceResult\n");
+        print("La distancia recorrida es: $distanceResult\n metros");
         break;
       case 2:
         print("Ingrese la nota 1: ");
