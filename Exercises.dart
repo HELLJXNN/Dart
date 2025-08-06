@@ -47,7 +47,9 @@ void main() {
         int? lost = int.tryParse(stdin.readLineSync() ?? '0');
         int totalPoints = points(won, tied, lost);
 
-        print("El equipo ha obtenido $totalPoints puntos. (Ganados: $won, Empatados: $tied, Perdidos: $lost)\n");
+        print(
+          "El equipo ha obtenido $totalPoints puntos. (Ganados: $won, Empatados: $tied, Perdidos: $lost)\n",
+        );
         break;
 
       case 4:
@@ -57,19 +59,26 @@ void main() {
         int? employeeHours = int.tryParse(stdin.readLineSync() ?? '0');
         print("Ingrese la tarifa por hora: ");
         double? rateHourEmployee = double.tryParse(stdin.readLineSync() ?? '0');
-        double accruedEmployee = calculateTotalAccrued(employeeHours, rateHourEmployee);
-        print("El empleado: $employeeName\n laboró $employeeHours\n y el total devengado es de: $accruedEmployee");
+        double accruedEmployee = calculateTotalAccrued(
+          employeeHours,
+          rateHourEmployee,
+        );
+        print(
+          "El empleado: $employeeName\n laboró $employeeHours\n y el total devengado es de: $accruedEmployee",
+        );
         break;
 
       case 5:
         print("Por favor, ingrese la longitud del primer cateto (a):");
         double? a = double.tryParse(stdin.readLineSync() ?? '');
-        
+
         print("Ahora, ingrese la longitud del segundo cateto (b):");
         double? b = double.tryParse(stdin.readLineSync() ?? '');
 
         if (a == null || b == null || a <= 0 || b <= 0) {
-          print("Error: Por favor, ingrese valores numéricos positivos para los catetos.\n");
+          print(
+            "Error: Por favor, ingrese valores numéricos positivos para los catetos.\n",
+          );
         } else {
           double hipotenusa = calculateHypotenuse(a, b);
           print("\nEl cálculo de la hipotenusa es:");
@@ -78,10 +87,11 @@ void main() {
           print("La hipotenusa (H) es = $hipotenusa\n");
         }
         break;
-        
+
       case 6:
-        const double celsius = 70;
-        double fahrenheit = celsiusToFahrenheit(celsius);
+        print("Ingrese la temperatura en grados Celcius: ");
+        double? celsius = double.tryParse(stdin.readLineSync() ?? '');
+        double? fahrenheit = celsiusToFahrenheit(celsius);
         print("La temperatura de $celsius°C es igual a $fahrenheit°F.\n");
         break;
 
@@ -128,7 +138,7 @@ double calculateHypotenuse(double a, double b) {
   return sqrt(pow(a, 2) + pow(b, 2));
 }
 
-
-double celsiusToFahrenheit(double celsius) {
-  return (celsius * 9 / 5) + 32;
+double celsiusToFahrenheit(double? c) {
+  double celcius = c ?? 0.0;
+  return (celcius * 1.8) + 32;
 }
